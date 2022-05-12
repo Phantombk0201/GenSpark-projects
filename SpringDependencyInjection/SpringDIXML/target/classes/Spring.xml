@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"> <!-- bean definitions here -->
+
+    <!--setting the students id, name, phone, and address-->
+    <bean id="student" class="org.genspark.Student">
+        <property name="id" value="627"/>
+        <property name="name" value="Leroy"/>
+        <!--calling the setting for the phone-->
+        <property name="ph">
+            <list>
+                <ref bean="phone"/>
+            </list>
+        </property>
+        <!--calling the settings for the address-->
+        <property name="add" ref="address"/>
+    </bean>
+    <!--setting the phone-->
+    <bean id="phone" class="org.genspark.Phone">
+        <property name="mob" value="123-456-7890"/>
+    </bean>
+
+    <!--setting the address-->
+    <bean id="address" class="org.genspark.Address">
+        <property name="city" value="Kokaua"/>
+        <property name="state" value="Hawaii"/>
+        <property name="country" value="USA"/>
+        <property name="zipcode" value="96703"/>
+    </bean>
+
+</beans>
